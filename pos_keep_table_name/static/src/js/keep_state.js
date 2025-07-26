@@ -6,6 +6,7 @@ odoo.define('pos_keep_table_name.KeepState', function (require) {
 
     patch(OrderCollection.prototype, {
         get_order_state(order) {
+            // Siempre mantener el estado 'Nueva' o el original si ya está en preparación
             return order.preparation_display_state || 'Nueva';
         },
     });
