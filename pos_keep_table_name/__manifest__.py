@@ -6,7 +6,7 @@
     'category': 'Point of Sale',
     'description': 'Evita que se borre el número de mesa de la pantalla de cocina después del pago.',
     'data': [
-         # 'views/assets.xml',
+        #  'views/assets.xml',
     ],
     'assets': {
         'point_of_sale.assets': [
