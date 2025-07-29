@@ -1,7 +1,8 @@
 <odoo>
     <template id="assets_backend" name="Keep Table Name Assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_keep_table_name/static/src/js/keep_table_name.js"/>
+          <script type="text/javascript" src="/pos_keep_table_name/static/src/js/keep_table_name.js"/>
+          <script type="module" src="/pos_keep_table_name/static/src/js/keep_state.js"/>
         </xpath>
     </template>
 </odoo>

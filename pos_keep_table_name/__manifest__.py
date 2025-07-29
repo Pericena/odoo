@@ -10,12 +10,11 @@
     ],
     'assets': {
         'point_of_sale.assets': [
-            'pos_keep_table_name/static/src/js/KeepTableName.js',
-            'pos_keep_table_name/static/src/js/KeepState.js',
+            'pos_keep_table_name/static/src/js/pos_keep_table_name.js',
+            'pos_keep_table_name/static/src/js/keep_state.js',
             'pos_keep_table_name/static/src/js/pos_keep_table_name.js'
         ],
     },
     'installable': True,
     'auto_install': False,
-    'license': 'LGPL-3',
 }

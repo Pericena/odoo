@@ -6,17 +6,38 @@ odoo.define('pos_kitchen_keep_table.kitchen_screen_patch', function(require) {
 
     const KitchenScreenPatch = (KitchenScreen) =>
         class extends KitchenScreen {
+
             _removeOrder(order) {
-                // NO eliminar la orden si ya fue pagada
-                if (order.is_paid) {
-                    order.state = 'paid';  // o algún estado personalizado si usas uno
+                if (order.is_internal_note) {
+                    super._removeOrder(order);
                     return;
                 }
+
+                if (order.is_paid) {
+                    order.state = 'paid';
+                    
+                
+                    if (order.original_table_name) {
+                        order.table = order.original_table_name;
+                    }
+                    return;
+                }
+
+
                 super._removeOrder(order);
+            }
+            _prepareOrderData(order) {
+                const orderData = super._prepareOrderData(...arguments);
+                
+                if (order.original_table_name) {
+                    orderData.table = order.original_table_name;
+                    orderData.name = order.original_table_name; 
+                }
+                
+                return orderData;
             }
         };
 
     Registries.Component.extend(KitchenScreen, KitchenScreenPatch);
-
     return KitchenScreen;
 });
